@@ -8,12 +8,14 @@ import { NavbarComponent } from './navbar/navbar/navbar.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeModule } from './home/home.module';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     HomeModule,
   ],
