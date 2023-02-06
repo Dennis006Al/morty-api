@@ -3,10 +3,11 @@
     <img src="../../assets/image/home-log.png" />
   </div>
   <div class="links">
-    <button mat-raised-button class="btn-link" routerLink="/">
+    <button mat-raised-button class="btn-link" (click)="goToCharacterList()">
       Characters
     </button>
-    <button mat-raised-button class="btn-link" routerLink="/">Locations</button>
-    <button mat-raised-button class="btn-link" routerLink="/">Episodes</button>
+
+    <button mat-raised-button class="btn-link">Locations</button>
+    <button mat-raised-button class="btn-link">Episodes</button>
   </div>
 </div>

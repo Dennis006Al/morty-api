@@ -7,9 +7,16 @@ const routes: Routes = [
   {
     path: 'character-list',
     loadChildren: () =>
-      import('./components/characters/character-list/characters.module').then(
-        (m) => m.CharactersModule
-      ),
+      import(
+        './components/characters/character-list/character-list.module'
+      ).then((m) => m.CharacterListModule),
+  },
+  {
+    path: 'character-detail',
+    loadChildren: () =>
+      import(
+        './components/characters/character-detail/character-detail.module'
+      ).then((m) => m.CharacterDetailModule),
   },
 ];
 

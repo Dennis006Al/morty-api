@@ -1,1 +1,54 @@
-<p>character-list works!</p>
+<div class="container">
+  <div class="card-container">
+    <div class="card" *ngFor="let character of filteredCharacters">
+      <div class="image">
+        <a [routerLink]="['/character-detail', character.id]">
+          <img
+            [src]="character.image"
+            [alt]="character.name"
+            class="card-img-top"
+          />
+        </a>
+      </div>
+      <div class="card-inner">
+        <div class="header">
+          <a [routerLink]="['/character-detail', character.id]">
+            <h1 class="character-name">{{ character.name }}</h1>
+          </a>
+          <h2 class="status white">
+            <span
+              *ngIf="character.status === 'Alive'"
+              class="status-alive"
+            ></span>
+            <span
+              *ngIf="character.status === 'Dead'"
+              class="status-dead"
+            ></span>
+            <span
+              *ngIf="character.status === 'unknown'"
+              class="status-unknown"
+            ></span>
+            {{ character.status }} - {{ character.species }}
+          </h2>
+          <h2 class="card-title">
+            <p class="text">Last known location:</p>
+            {{ character.location.name }}
+          </h2>
+          <h2 class="card-title">
+            <p class="text">Created:</p>
+            {{ character.created | date }}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="not-found" *ngIf="characters.length <= 0">
+  <img src="../../../../assets/image/mr-meeseeks.png" />
+  <h1>Ops! There is no character here<br />try another universe!</h1>
+</div>
+<div class="btn-container" *ngIf="characters.length > 0">
+  <button mat-raised-button class="btn-up">
+    Up<mat-icon>keyboard_arrow_up</mat-icon>
+  </button>
+</div>

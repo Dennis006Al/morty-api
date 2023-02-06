@@ -30,7 +30,9 @@ export class SearchLabelComponent implements OnInit {
   ngOnInit(): void {}
 
   onSearch(value: string) {
-    if (value && value.length >= 3) {
+    if (!value) {
+      this.router.navigate(['/character-list']);
+    } else if (value.length > 0) {
       this.router.navigate(['/character-list'], {
         queryParams: { q: value },
       });
