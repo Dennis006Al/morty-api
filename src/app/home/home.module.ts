@@ -9,7 +9,12 @@ import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [HomeComponent, SearchLabelComponent],
-  imports: [CommonModule, MatInputModule, MatIconModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
   exports: [HomeComponent, SearchLabelComponent],
   providers: [],
 })

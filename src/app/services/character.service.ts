@@ -15,6 +15,6 @@ export class CharacterService {
   }
 
   getDetails(id: number) {
-    return this.http.get<Character>(`${environment.baseURL}/${id}`);
+    return this.http.get<Character>(`${environment.baseURL}character/${id}`);
   }
 }

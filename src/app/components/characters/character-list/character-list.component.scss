@@ -8,14 +8,15 @@
 .card {
   display: flex;
   gap: 16px;
-  max-height: 250px;
+  height: 270px;
   background: rgb(60, 62, 68);
   border-radius: 0.75rem;
 }
 
 .image {
+  cursor: pointer;
   img {
-    max-height: 250px;
+    max-height: 270px;
     border-radius: 0.75rem 0px 0px 0.75rem;
   }
 }
@@ -25,11 +26,13 @@
 }
 
 .character-name {
-  font-family: "rick";
+  font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 800;
   color: white;
   font-size: 32px;
   margin: 16px 0 8px 0;
+  cursor: pointer;
   &:hover {
     color: rgb(255, 152, 0);
   }
@@ -60,9 +63,8 @@
 }
 
 .text {
-  font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto",
-    "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
+  font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: rgb(158, 158, 158);
   font-size: 16px;
   margin: 0;
@@ -70,6 +72,13 @@
 
 .card-title {
   font-family: "rick";
+  color: white;
+  margin: 0;
+}
+
+.title {
+  font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: white;
   letter-spacing: 4px;
   margin: 0;
@@ -92,8 +101,41 @@
   }
 }
 
-.btn-container {
+.parent-container {
+  position: relative;
+}
+
+.btn-next {
   display: flex;
-  justify-content: flex-end;
-  margin-right: 16px;
+  margin: 16px 0px 0px 16px;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  .btn-up{
+    width: 120px;
+    position: fixed;
+    bottom: 60px;
+    left: 20px;
+    color: white;
+    &:hover {
+      background-color: rgb(255, 152, 0);
+      color: black;
+    }
+  }
+  .btn-down{
+    width: 120px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    &:hover {
+      background-color: rgb(255, 152, 0);
+      color: black;
+    }
+  }
+  .btn-up:hover .mat-icon {
+    color: black;
+  }
+  .btn-down:hover .mat-icon {
+    color: black;
+  }
 }
