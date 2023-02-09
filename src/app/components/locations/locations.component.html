@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="container-title">
+    <h1 class="location-title">Locations</h1>
+    <button mat-raised-button class="back-home" routerLink="/">
+      <mat-icon>keyboard_arrow_left</mat-icon> Back Home
+    </button>
+  </div>
+  <div class="white-line"></div>
+  <p class="page">Current Page - {{ pageNum }}</p>
+  <div class="locations">
+    <ul>
+      <li class="text" *ngFor="let location of locations">
+        - {{ location.name }}
+      </li>
+    </ul>
+  </div>
+  <div class="btn-next">
+    <button
+      mat-raised-button
+      (click)="previousPage(); scrollToTop()"
+      *ngIf="pageNum > 1"
+      class="btn"
+    >
+      <mat-icon>keyboard_arrow_left</mat-icon>Previous
+    </button>
+    <button mat-raised-button (click)="nextPage(); scrollToTop()" class="btn">
+      Next<mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>

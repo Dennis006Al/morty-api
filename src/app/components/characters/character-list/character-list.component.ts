@@ -69,8 +69,6 @@ export class CharacterListComponent implements OnInit {
       .pipe(take(1))
       .subscribe(
         (res: any) => {
-          console.log('Info-->', res);
-
           const { info, results } = res;
           this.characters = results;
           this.info = info;
@@ -93,6 +91,9 @@ export class CharacterListComponent implements OnInit {
   }
 
   nextPage(): void {
+    if (this.pageNum >= 42) {
+      return;
+    }
     this.pageNum++;
     this.getDataFromService();
   }
@@ -102,6 +103,8 @@ export class CharacterListComponent implements OnInit {
   }
 
   goToCharacterDetail(character: Character): void {
-    this.router.navigate(['/character-detail', character.id], { queryParams: { page: this.pageNum } });
+    this.router.navigate(['/character-detail', character.id], {
+      queryParams: { page: this.pageNum },
+    });
   }
 }

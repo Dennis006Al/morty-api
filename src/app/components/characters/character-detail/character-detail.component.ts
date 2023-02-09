@@ -3,8 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, take } from 'rxjs';
 import { CharacterService } from 'src/app/services/character.service';
 import { Character } from '../../interfaces/character.interface';
-import { Location
- } from '@angular/common';
 @Component({
   selector: 'character-detail',
   templateUrl: './character-detail.component.html',

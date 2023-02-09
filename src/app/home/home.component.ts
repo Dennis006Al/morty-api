@@ -14,4 +14,8 @@ export class HomeComponent implements OnInit {
   goToCharacterList(): void {
     this.router.navigate(['/character-list']);
   }
+
+  goToLocationList(): void {
+    this.router.navigate(['/locations']);
+  }
 }

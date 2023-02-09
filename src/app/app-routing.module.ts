@@ -18,6 +18,13 @@ const routes: Routes = [
         './components/characters/character-detail/character-detail.module'
       ).then((m) => m.CharacterDetailModule),
   },
+  {
+    path: 'locations',
+    loadChildren: () =>
+      import('./components/locations/locations.module').then(
+        (m) => m.LocationsModule
+      ),
+  },
 ];
 
 @NgModule({
