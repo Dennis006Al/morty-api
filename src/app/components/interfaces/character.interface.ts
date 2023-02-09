@@ -34,4 +34,16 @@ export interface Locations {
   residents: string[];
   url: string;
   created: Date;
+  showResidents: boolean;
+}
+
+export interface Episodes {
+  id: number;
+  name: string;
+  air_date: string;
+  episode: string;
+  characters: string[];
+  url: string;
+  created: Date;
+  showCharacters: boolean;
 }

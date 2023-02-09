@@ -1,4 +1,4 @@
-<div class="container">
+<div>
   <div class="container-title">
     <h1 class="location-title">Locations</h1>
     <button mat-raised-button class="back-home" routerLink="/">
@@ -7,12 +7,31 @@
   </div>
   <div class="white-line"></div>
   <p class="page">Current Page - {{ pageNum }}</p>
-  <div class="locations">
-    <ul>
-      <li class="text" *ngFor="let location of locations">
-        - {{ location.name }}
-      </li>
-    </ul>
+  <div *ngFor="let location of locations">
+    <div class="locations">
+      <div>
+        <ul>
+          <li class="text">- {{ location.name }}</li>
+        </ul>
+      </div>
+      <div>
+        <p
+          class="text-locations"
+          (click)="location.showResidents = !location.showResidents"
+        >
+          | Characters See - {{ location.residents.length }}
+        </p>
+      </div>
+    </div>
+    <div class="residents" *ngIf="location.showResidents">
+      <a
+        *ngFor="let resident of location.residents"
+        [routerLink]="['/character-detail', getId(resident)]"
+        class="text-residents"
+      >
+        - {{ resident }}
+      </a>
+    </div>
   </div>
   <div class="btn-next">
     <button

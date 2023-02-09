@@ -1,54 +1,55 @@
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { CharacterService } from 'src/app/services/character.service';
-import { Locations } from '../interfaces/character.interface';
+import { Episodes } from '../interfaces/character.interface';
 
 @Component({
-  selector: 'app-locations',
-  templateUrl: './locations.component.html',
-  styleUrls: ['./locations.component.scss'],
+  selector: 'app-episodes',
+  templateUrl: './episodes.component.html',
+  styleUrls: ['./episodes.component.scss'],
 })
-export class LocationsComponent implements OnInit {
-  locations: Locations[] = [];
+export class EpisodesComponent implements OnInit {
+  episodes: Episodes[] = [];
   pageNum = 1;
 
   constructor(private characterSvc: CharacterService) {}
 
   ngOnInit(): void {
-    this.getLocations();
+    this.getEpisodes();
   }
 
-  getLocations(): void {
+  getEpisodes(): void {
     this.characterSvc
-      .getLocations(this.pageNum)
+      .getEpisodes(this.pageNum)
       .pipe(take(1))
       .subscribe((res: any) => {
+        console.log('Episodes-->', res);
         const { results } = res;
-        this.locations = results;
+        this.episodes = results;
       });
   }
 
   previousPage(): void {
     if (this.pageNum > 1) {
       this.pageNum--;
-      this.getLocations();
+      this.getEpisodes();
     }
   }
 
   nextPage(): void {
-    if (this.pageNum >= 7) {
+    if (this.pageNum >= 3) {
       return;
     }
     this.pageNum++;
-    this.getLocations();
+    this.getEpisodes();
   }
 
   scrollToTop() {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }
 
-  getId(resident: string) {
-    const id = resident.split("/")[5];
+  getId(character: string) {
+    const id = character.split("/")[5];
     return id;
   }
 }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import {
   Character,
+  Episodes,
   Locations,
 } from '../components/interfaces/character.interface';
 
@@ -23,5 +24,9 @@ export class CharacterService {
 
   getLocations(page = 1) {
     return this.http.get<Locations[]>(`${environment.baseURL}location?page=${page}`);
+  }
+
+  getEpisodes(page = 1) {
+    return this.http.get<Episodes[]>(`${environment.baseURL}episode?page=${page}`);
   }
 }

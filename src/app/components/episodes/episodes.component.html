@@ -1,0 +1,49 @@
+<div>
+  <div class="container-title">
+    <h1 class="location-title">Episodes</h1>
+    <button mat-raised-button class="back-home" routerLink="/">
+      <mat-icon>keyboard_arrow_left</mat-icon> Back Home
+    </button>
+  </div>
+  <div class="white-line"></div>
+  <p class="page">Current Page - {{ pageNum }}</p>
+  <div *ngFor="let episode of episodes">
+    <div class="episodes">
+      <div>
+        <ul>
+          <li class="text">- {{ episode.name }}</li>
+        </ul>
+      </div>
+      <div>
+        <p
+          class="text-episodes"
+          (click)="episode.showCharacters = !episode.showCharacters"
+        >
+          | Characters See - {{ episode.characters.length }}
+        </p>
+      </div>
+    </div>
+    <div class="residents" *ngIf="episode.showCharacters">
+      <a
+        *ngFor="let character of episode.characters"
+        [routerLink]="['/character-detail', getId(character)]"
+        class="text-residents"
+      >
+        - {{ character }}
+      </a>
+    </div>
+  </div>
+</div>
+<div class="btn-next">
+  <button
+    mat-raised-button
+    (click)="previousPage(); scrollToTop()"
+    *ngIf="pageNum > 1"
+    class="btn"
+  >
+    <mat-icon>keyboard_arrow_left</mat-icon>Previous
+  </button>
+  <button mat-raised-button (click)="nextPage(); scrollToTop()" class="btn">
+    Next<mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>

@@ -18,4 +18,8 @@ export class HomeComponent implements OnInit {
   goToLocationList(): void {
     this.router.navigate(['/locations']);
   }
+
+  goToEpisodeList(): void {
+    this.router.navigate(['/episodes']);
+  }
 }

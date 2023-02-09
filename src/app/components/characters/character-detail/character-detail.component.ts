@@ -28,7 +28,17 @@ export class CharacterDetailComponent implements OnInit {
   goBack(): void {
     this.route.queryParams.subscribe((params) => {
       const pageNum = +params['page'] || 1;
-      this.router.navigate(['/character-list'], { queryParams: { page: pageNum } });
+      this.router.navigate(['/character-list'], {
+        queryParams: { page: pageNum },
+      });
     });
+  }
+
+  goBackLocations() {
+    this.router.navigate(['/locations']);
+  }
+
+  goBackEpisodes() {
+    this.router.navigate(['/episodes']);
   }
 }
