@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'app-search-label',
   template: `
     <div>
-      <h1 class="home-title">Browse your Rick and Morty</h1>
+      <h1 class="home-title">Browse your Rick and Morty character</h1>
     </div>
     <div class="label">
       <input

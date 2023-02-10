@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, take } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { CharacterService } from 'src/app/services/character.service';
 import { Character } from '../../interfaces/character.interface';
 @Component({
