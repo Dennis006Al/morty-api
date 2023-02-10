@@ -1,3 +1,5 @@
+@import "../../../assets/mixins";
+
 .container-title {
   display: flex;
   justify-content: space-between;
@@ -10,6 +12,13 @@
   }
   .back-home:hover .mat-icon {
     color: black;
+  }
+  @include respond-to("small") {
+    flex-direction: column;
+    text-align: center;
+    .back-home {
+      margin: 0 32px;
+    }
   }
 }
 
@@ -41,11 +50,20 @@
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 3px;
+  @include respond-to("small") {
+    justify-content: center;
+    margin: 0 0 16px 0;
+  }
 }
 
 .locations {
   display: flex;
   gap: 16px;
+  @include respond-to("small") {
+    align-items: center;
+    flex-direction: column;
+    gap: 0;
+  }
 }
 
 .text {
@@ -58,6 +76,9 @@
   margin-top: 12px;
   cursor: pointer;
   color: rgb(255, 152, 0);
+  @include respond-to("small") {
+    text-align: center;
+  }
 }
 
 .text-locations {
@@ -89,6 +110,12 @@
     cursor: pointer;
     &:hover {
       color: rgb(255, 152, 0);
+    }
+  }
+  @include respond-to("small") {
+    margin: 0 24px;
+    .text-residents {
+      font-size: 18px;
     }
   }
 }

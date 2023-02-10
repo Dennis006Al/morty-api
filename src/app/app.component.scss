@@ -3,6 +3,14 @@
   src: url("../assets/fonts/get_schwifty.ttf") format("truetype");
 }
 
+@import "../assets/mixins";
+
+.main-container {
+  @include respond-to("small") {
+    width: 116vw;
+  }
+}
+
 .container {
   margin-top: 2.5rem;
 }
@@ -16,7 +24,7 @@
   }
 }
 
-.container-search{
+.container-search {
   display: flex;
   align-items: center;
   margin-top: 1.5rem;
